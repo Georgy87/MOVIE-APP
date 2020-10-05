@@ -15,12 +15,12 @@ class FilmList extends React.Component {
 
         // Pagination
 
-        const pageItems = 1;
+        const pageItems = 3;
         const current = 1;
         const from = current * pageItems - pageItems;
         const to = current * pageItems;
         const movies = filmIds.slice(from , to);
-        console.log(movies);
+
 
         // Axios
 
@@ -48,16 +48,41 @@ class FilmList extends React.Component {
             axios.interceptors.response.use(getData);
         }
 
-        async function getMovies() {
+        async function getMovies(newMovies) {
             const request = movies.map((id) => instance.get(`?i=${id}`));
-            console.log(request);
             const requestMovie = await Promise.all(request);
+
+             // dev added likes and important to movieArray
+
+            requestMovie.map(el => {
+                el.liked = true;
+                return el;
+            })
             console.log(requestMovie);
         }
+
         getMovies();
+
+        // delete IdsArray
+
+        // const index = filmIds.findIndex(item => item === "tt0071562");
+        // const before = filmIds.slice(0, index);
+        // const after = filmIds.slice(index + 1);
+        // const newArray = [...before, ...after];
+
+        // searchMovies
+
+        // async function searchMovies() {
+        //     const request = await instance.get(`?s=black mirror`);
+        //     console.log(request);
+        // }
+
+        // searchMovies('batman');
+
     }
 
     render() {
+        console.log(this.state);
         return <div className="film-list">Hello</div>;
     }
 }
