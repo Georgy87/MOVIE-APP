@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import FilmList from "./components/films/film-list";
+import FilmListContainer from "./components/films/film-list-container";
 
-function App() {
+const App = () => {
     return (
         <div className="app-wrapper">
-            <FilmList />
+            <FilmListContainer />
         </div>
     );
 }

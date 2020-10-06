@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from "redux";
 import FilmsReducer from "./films-reducer";
-console.log(createStore);
+
 const reducers = combineReducers({
     filmPage: FilmsReducer,
 });

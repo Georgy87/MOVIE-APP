@@ -7,7 +7,7 @@ const FilmsReducer = (state = initialState, actions) => {
         case "SET-FILMS":
             return {
                 ...state,
-                films: actions.films,
+                films: actions.film,
             };
         default:
             return state;

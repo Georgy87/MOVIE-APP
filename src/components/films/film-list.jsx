@@ -3,6 +3,7 @@ import "./film-list.css";
 import * as axios from "axios";
 import { filmIds } from "../film-Ids/film-ids";
 
+
 class FilmList extends React.Component {
     constructor(props) {
         super(props);
@@ -48,20 +49,24 @@ class FilmList extends React.Component {
             axios.interceptors.response.use(getData);
         }
 
-        async function getMovies(newMovies) {
-            const request = movies.map((id) => instance.get(`?i=${id}`));
-            const requestMovie = await Promise.all(request);
+        
+        const request = movies.map((id) => instance.get(`?i=${id}`));
 
-             // dev added likes and important to movieArray
+        const requestMovie = Promise.all(request).then(res => {
+            return this.props.setFilms(res);
+        });
 
-            requestMovie.map(el => {
-                el.liked = true;
-                return el;
-            })
-            console.log(requestMovie);
-        }
 
-        getMovies();
+        // console.log(this.props);
+        // this.props.setFilms(requestMovie);
+            // dev added likes and important to movieArray
+
+        // requestMovie.map(el => {
+        //     el.liked = true;
+        //     return el;
+        // })
+        // console.log(requestMovie);
+
 
         // delete IdsArray
 
@@ -82,7 +87,7 @@ class FilmList extends React.Component {
     }
 
     render() {
-        console.log(this.state);
+
         return <div className="film-list">Hello</div>;
     }
 }
