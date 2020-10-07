@@ -5,6 +5,7 @@ import FilmListContainer from "./components/films/film-list-container";
 
 
 const App = (props) => {
+    console.log(props);
     return (
         <div className="app">
             <div className="app-wrapper">

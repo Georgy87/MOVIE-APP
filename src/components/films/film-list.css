@@ -1,9 +1,10 @@
 
 .film-list-wrapper {
-    height: 730px;
+    height: 750px;
     overflow-y: scroll;
     z-index: -1;
-    margin-top: -69px;
+    /* margin-top: -69px; */
+
 
 }
 
@@ -13,4 +14,13 @@
     width: 1000px;
     background: rgba(0,0,0,0.85);
     box-shadow: 0px 10px 20px;
+    margin-bottom: 100%;
+
+}
+
+.next-show {
+    display: block;
+    margin: 0 auto;
+    position: fixed;
+    margin-top: 300px;
 }
