@@ -1,0 +1,9 @@
+.film-list-item {
+    padding: 40px;
+}
+
+.film-list-item-hr {
+    border: none;
+    height: 3px;
+    background-image: linear-gradient(to bottom, rgb(16, 44, 30) 8%, rgba(0, 0, 0, 0) 92%);
+}

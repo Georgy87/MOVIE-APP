@@ -1,3 +1,16 @@
-.film-list {
-    color: black;
+
+.film-list-wrapper {
+    height: 730px;
+    overflow-y: scroll;
+    z-index: -1;
+    margin-top: -69px;
+
+}
+
+.film-list-item-wrapper {
+    margin: 0 auto;
+    margin-top: 250px;
+    width: 1000px;
+    background: rgba(0,0,0,0.85);
+    box-shadow: 0px 10px 20px;
 }

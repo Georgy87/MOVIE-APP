@@ -5,7 +5,7 @@ import { setFilms } from "../../redux/films-reducer";
 
 const mapStateToProps = (state) => {
     return {
-        state: state.filmPage.films,
+        films: state.filmPage.films,
     };
 };
 

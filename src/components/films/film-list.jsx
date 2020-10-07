@@ -1,9 +1,8 @@
 import React from "react";
 import "./film-list.css";
-import * as axios from "axios";
 import { filmIds } from "../film-Ids/film-ids";
 import instance from "../api/api";
-
+import FilmListItem from "./film-list-item/film-list-item";
 
 class FilmList extends React.Component {
     constructor(props) {
@@ -14,22 +13,17 @@ class FilmList extends React.Component {
     }
 
     componentDidMount() {
-
         // Pagination
 
-        const pageItems = 2;
+        const pageItems = 4;
         const current = 1;
         const from = current * pageItems - pageItems;
         const to = current * pageItems;
-        const movies = filmIds.slice(from , to);
-
-        // Axios
-
-        // Axios interseptors
+        const movies = filmIds.slice(from, to);
 
         const request = movies.map((id) => instance.get(`?i=${id}`));
 
-        const requestMovie = Promise.all(request).then(res => {
+        const requestMovie = Promise.all(request).then((res) => {
             return this.props.setFilms(res);
         });
 
@@ -42,7 +36,6 @@ class FilmList extends React.Component {
         //     return el;
         // })
         // console.log(requestMovie);
-
 
         // delete IdsArray
 
@@ -59,15 +52,26 @@ class FilmList extends React.Component {
         // }
 
         // searchMovies('batman');
-
     }
 
     render() {
-        console.log(this.props);
+        const { films } = this.props;
 
-        return <div className="film-list">
-
-        </div>;
+        const elements = films.map((film) => {
+            console.log(film);
+            return (
+                <FilmListItem
+                    key={film.imdbID}
+                    id={film.imdbID}
+                    poster={film.Poster}
+                />
+            );
+        });
+        return (
+            <div className="film-list-wrapper">
+                <div className="film-list-item-wrapper">{elements}</div>
+            </div>
+        );
     }
 }
 
