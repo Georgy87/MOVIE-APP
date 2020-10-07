@@ -2,6 +2,7 @@ import React from "react";
 import "./film-list.css";
 import * as axios from "axios";
 import { filmIds } from "../film-Ids/film-ids";
+import instance from "../api/api";
 
 
 class FilmList extends React.Component {
@@ -16,50 +17,25 @@ class FilmList extends React.Component {
 
         // Pagination
 
-        const pageItems = 3;
+        const pageItems = 2;
         const current = 1;
         const from = current * pageItems - pageItems;
         const to = current * pageItems;
         const movies = filmIds.slice(from , to);
 
-
         // Axios
-
-        const instance = axios.create({
-            baseURL: 'http://www.omdbapi.com/'
-        });
 
         // Axios interseptors
 
-        interceptors(instance);
-
-        function setParams(config) {
-            config.params = {
-                apikey: 'a1213c70'
-            }
-            return config;
-        }
-
-        function getData(response) {
-            return response.data;
-        }
-
-        function interceptors(axios) {
-            axios.interceptors.request.use(setParams);
-            axios.interceptors.response.use(getData);
-        }
-
-        
         const request = movies.map((id) => instance.get(`?i=${id}`));
 
         const requestMovie = Promise.all(request).then(res => {
             return this.props.setFilms(res);
         });
 
-
         // console.log(this.props);
         // this.props.setFilms(requestMovie);
-            // dev added likes and important to movieArray
+        // dev added likes and important to movieArray
 
         // requestMovie.map(el => {
         //     el.liked = true;
@@ -87,8 +63,11 @@ class FilmList extends React.Component {
     }
 
     render() {
+        console.log(this.props);
 
-        return <div className="film-list">Hello</div>;
+        return <div className="film-list">
+
+        </div>;
     }
 }
 
