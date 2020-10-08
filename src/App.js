@@ -5,8 +5,7 @@ import FilmListContainer from "./components/films/film-list-container";
 import { Route } from "react-router-dom";
 import FilmInfo from "./components/film-info/film-info-container";
 
-const App = (props) => {
-    console.log(props)
+const App = () => {
     return (
         <div className="app">
                 <Header />

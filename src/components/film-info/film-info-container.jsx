@@ -2,26 +2,29 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import { setFilmInfo } from "../../redux/films-reducer";
+import instance from "../api/api";
+import FilmInfo from "../film-info/film-info";
 
-class FilmInfo extends Component {
+class FilmInfoContainer extends Component {
     constructor(props) {
         super(props);
         this.props = props;
     }
 
     componentDidMount() {
-        console.log(this.props.match.params.filmId);
-        console.log(this.props);
+        const id = this.props.match.params.filmId;
+        instance.get(`?i=${id}`).then(res => this.props.setFilmInfo(res));
     }
 
     render() {
-        return <div style={{ color: "white" }}>Hello</div>;
+        return <FilmInfo filmInfo={this.props.filmInfo}/> ;
     }
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
-    return {};
+    return {
+        filmInfo: state.filmPage.filmInfo
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -30,6 +33,6 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-const FilmInfoWithRouter = withRouter(FilmInfo);
+const FilmInfoWithRouter = withRouter(FilmInfoContainer);
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilmInfoWithRouter);

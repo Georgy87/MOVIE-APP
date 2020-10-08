@@ -2,9 +2,6 @@
     height: 750px;
     overflow-y: scroll;
     z-index: -1;
-    /* margin-top: -69px; */
-
-
 }
 
 .film-list-item-wrapper {
@@ -15,20 +12,16 @@
     background: rgba(0,0,0,0.85);
     box-shadow: 0px 10px 20px;
     margin-bottom: 200px;
-
 }
 
 .next-show {
-   position: absolute;
-   top: 80%;
-   left: 5%;
-   z-index: 4;
-   border: 1px solid white;
-   padding: 4px;
-   cursor: pointer;
-   border-radius: 4px;
-    /* position: fixed; */
-    /* margin-top: 300px; */
-
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    z-index: 4;
+    border: 1px solid white;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
     color: white;
 }

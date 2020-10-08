@@ -1,0 +1,44 @@
+.film-info-wrapper {
+    display: flex;
+    min-height: 600px;
+    background: rgba(0, 0, 0, 0.85);
+    box-shadow: 0px 10px 20px;
+    margin: 0 auto;
+    width: 1300px;
+    margin-top: 100px;
+}
+.film-info-wrapper img {
+    height: 400px;
+    width: 310px;
+    margin-top: 80px;
+    margin-left: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 30px 7px rgba(243, 239, 239, 0.9);
+    transition: all 0.3s ease;
+}
+.film-info-wrapper img:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+.descr-wrapper {
+    margin-left: 80px;
+    margin-top: 30px;
+}
+.descr-title {
+    color: rgb(202, 137, 39);
+    font-size: 30px;
+}
+.descr-item {
+    color: rgb(202, 137, 39);
+    font-size: 15px;
+    padding-top: 2px;
+}
+.descr-item-wrapper {
+    margin-top: 20px;
+}
+.descr-item-wrapper :last-child{
+    margin-top: 20px;
+    font-size: 20px;
+}
+

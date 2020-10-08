@@ -15,7 +15,6 @@ class FilmList extends React.Component {
     }
 
     componentDidMount() {
-        // Pagination
 
         const { current } = this.state;
 
