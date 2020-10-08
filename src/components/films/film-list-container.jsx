@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import FilmList from "./film-list";
-import { setFilms,  countCurrent } from "../../redux/films-reducer";
+import { setFilms,  nextShowFilm } from "../../redux/films-reducer";
 
 const mapStateToProps = (state) => {
     console.log(state);
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         setFilms: (film) => dispatch(setFilms(film)),
-        countCurrent: (count) => dispatch(countCurrent(count))
+        nextShowFilm: (count) => dispatch(nextShowFilm(count))
     };
 };
 

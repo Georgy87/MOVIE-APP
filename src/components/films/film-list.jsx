@@ -32,7 +32,7 @@ class FilmList extends React.Component {
         });
     }
 
-    onChangeCurrent = () => {
+    onChangeShowFilm = () => {
         let val = this.state.currentNextPage++;
 
         const pageItems = 3;
@@ -44,7 +44,7 @@ class FilmList extends React.Component {
 
         const request = movies.map((id) => instance.get(`?i=${id}`));
         const requestMovie = Promise.all(request).then((res) => {
-            return this.props.countCurrent(res);
+            return this.props.nextShowFilm(res);
         });
     };
 
@@ -67,7 +67,7 @@ class FilmList extends React.Component {
         return (
             <div>
                 <div className="film-list-wrapper">
-                    <div className="next-show" onClick={this.onChangeCurrent}>
+                    <div className="next-show" onClick={this.onChangeShowFilm}>
                         NEXT SHOW
                     </div>
                     <div className="film-list-item-wrapper">{elements}</div>

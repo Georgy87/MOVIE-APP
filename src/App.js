@@ -3,15 +3,16 @@ import "./App.css";
 import Header from "./components/header/header";
 import FilmListContainer from "./components/films/film-list-container";
 import { Route } from "react-router-dom";
-import FilmInfo from "./components/films/film-info/film-info-container";
+import FilmInfo from "./components/film-info/film-info-container";
 
-const App = () => {
+const App = (props) => {
+    console.log(props)
     return (
         <div className="app">
                 <Header />
             <div className="app-wrapper">
                 <Route path="/d" render={() => <FilmListContainer />}/>
-                <Route path="/filminfo" render={() => <FilmInfo />} />
+                <Route path="/filminfo/:filmId?" render={() => <FilmInfo />} />
             </div>
         </div>
     );

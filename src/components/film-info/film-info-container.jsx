@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
+import { setFilmInfo } from "../../redux/films-reducer";
 
 class FilmInfo extends Component {
     constructor(props) {
         super(props);
+        this.props = props;
     }
 
     componentDidMount() {
-        const { match, location, history } = this.props;
-        console.log(match);
+        console.log(this.props.match.params.filmId);
+        console.log(this.props);
     }
 
     render() {
@@ -19,15 +21,15 @@ class FilmInfo extends Component {
 
 const mapStateToProps = (state) => {
     console.log(state);
-    return {
+    return {};
+};
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setFilmInfo: (film) => dispatch(setFilmInfo(film))
     };
 };
 
-const mapDispatchToProps = () => {
-    return {
+const FilmInfoWithRouter = withRouter(FilmInfo);
 
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FilmInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(FilmInfoWithRouter);
