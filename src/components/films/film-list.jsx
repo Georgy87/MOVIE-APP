@@ -58,6 +58,7 @@ class FilmList extends React.Component {
                         key={film.imdbID}
                         id={film.imdbID}
                         poster={film.Poster}
+                        film={film}
                     />
                 </div>
             );
@@ -66,12 +67,9 @@ class FilmList extends React.Component {
         return (
             <div>
                 <div className="film-list-wrapper">
-                    <button
-                        onClick={this.onChangeCurrent}
-                        className="next-show"
-                    >
+                    <div className="next-show" onClick={this.onChangeCurrent}>
                         NEXT SHOW
-                    </button>
+                    </div>
                     <div className="film-list-item-wrapper">{elements}</div>
                 </div>
             </div>
