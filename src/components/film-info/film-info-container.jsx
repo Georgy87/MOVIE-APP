@@ -13,7 +13,8 @@ class FilmInfoContainer extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.filmId;
-        instance.get(`?i=${id}`).then(res => this.props.setFilmInfo(res));
+        // instance.get(`?i=${id}`).then(res => this.props.setFilmInfo(res));
+        this.props.setFilmInfo(id);
     }
 
     render() {

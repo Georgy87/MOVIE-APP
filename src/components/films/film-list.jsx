@@ -27,8 +27,15 @@ class FilmList extends React.Component {
 
         const request = movies.map((id) => instance.get(`?i=${id}`));
         const requestMovie = Promise.all(request).then((res) => {
-            return this.props.setFilms(res);
+            let result = res.map(function(e, i) {
+                // console.log(i+3);
+                let ageArr = [{name: "gosha"}, {name: "ivan"}, {name: "nicolai"}]
+                return Object.assign({}, e, ageArr[i]);
+            });
+            return this.props.setFilms(result);
         });
+        console.log(this.props)
+
     }
 
     onChangeShowFilm = () => {
@@ -43,12 +50,22 @@ class FilmList extends React.Component {
 
         const request = movies.map((id) => instance.get(`?i=${id}`));
         const requestMovie = Promise.all(request).then((res) => {
+
             return this.props.nextShowFilm(res);
         });
     };
 
     render() {
         const { films } = this.props;
+
+        // var ageArr = [{ age: "22" }, { age: "21" }, { age: "32" }];
+
+        // var result = films.map(function(e, i) {
+        //     // console.log(i+3);
+        //     return Object.assign({}, e, ageArr[i]);
+        // });
+
+        // this.props.setFilms(result);
 
         const elements = films.map((film) => {
             return (

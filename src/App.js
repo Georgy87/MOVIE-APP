@@ -10,7 +10,7 @@ const App = () => {
         <div className="app">
                 <Header />
             <div className="app-wrapper">
-                <Route path="/d" render={() => <FilmListContainer />}/>
+                <Route path="/d" render={() => <FilmListContainer />} />
                 <Route path="/filminfo/:filmId?" render={() => <FilmInfo />} />
             </div>
         </div>

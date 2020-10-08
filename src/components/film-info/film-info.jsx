@@ -1,7 +1,12 @@
 import React from "react";
 import "./film-info.css";
-import Example from "../pleayer/player";
+
+import PlayerContainer from "../pleayer/player-container";
 const FilmInfo = (props) => {
+    console.log(props)
+    const [ info ] = props.filmInfo;
+    console.log(info);
+
     let poster = null;
     let title = null;
     let genre = null;
@@ -15,21 +20,21 @@ const FilmInfo = (props) => {
     let year = null;
     let plot = null;
 
-    if (props.filmInfo === null) {
+    if (info  === undefined) {
         console.log("no");
     } else {
-        poster = props.filmInfo.Poster;
-        title = props.filmInfo.Title;
-        genre = props.filmInfo.Genre;
-        country = props.filmInfo.Country;
-        actors = props.filmInfo.Actors;
-        released = props.filmInfo.Released;
-        director = props.filmInfo.Director;
-        writer = props.filmInfo.Writer;
-        awards = props.filmInfo.Awards;
-        production = props.filmInfo.Production;
-        year = props.filmInfo.Year;
-        plot = props.filmInfo.Plot;
+        poster = info.Poster;
+        title = info.Title;
+        genre = info.Genre;
+        country = info.Country;
+        actors = info.Actors;
+        released = info.Released;
+        director = info.Director;
+        writer = info.Writer;
+        awards = info.Awards;
+        production = info.Production;
+        year = info.Year;
+        plot = info.Plot;
     }
 
     return (
@@ -65,7 +70,7 @@ const FilmInfo = (props) => {
                     <div className="descr-item">
                         <b>Plot:</b> {plot}
                     </div>
-                    <Example/>
+                    <PlayerContainer />
                 </div>
             </div>
         </div>
