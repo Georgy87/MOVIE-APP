@@ -29,7 +29,6 @@ class FilmList extends React.Component {
         const request = movies.map( (id) => instance.get(`?i=${id}`));
         const requestMovie = Promise.all(request).then((res) => {
             let result = res.map(function(e, i) {
-
                 return Object.assign({}, e, YouTubeIds[i]);
             });
             return this.props.setFilms(result);
@@ -54,7 +53,7 @@ class FilmList extends React.Component {
             let result = res.map(function(e, i) {
                 i = i + from;
                 console.log(i);
-                console.log(YouTubeIds[i])
+                console.log(YouTubeIds[i]);
                 return Object.assign({}, e, YouTubeIds[i]);
             });
             return this.props.nextShowFilm(result);
@@ -99,7 +98,7 @@ export default FilmList;
 // requestMovie.map(el => {
 //     el.liked = true;
 //     return el;
-// })
+// });
 // console.log(requestMovie);
 
 // delete IdsArray
