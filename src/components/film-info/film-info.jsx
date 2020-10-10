@@ -3,11 +3,18 @@ import "./film-info.css";
 import PlayerContainer from "../pleayer/player-container";
 
 const FilmInfo = (props) => {
+
     const [info] = props.filmInfo;
-    const element = info === undefined ? (
+
+    const getShoppingСart = () => {
+        props.setCardShop(info.imdbID)
+    }
+
+    const element = info === undefined ?
             console.log("no")
-        ) : (
+        : (
             <>
+                <button onClick={getShoppingСart}>shopping card</button>
                 <img src={info.Poster} alt="poster" />
                 <div className="descr-wrapper">
                     <div className="descr-title">Title: {info.Title}</div>
@@ -40,7 +47,6 @@ const FilmInfo = (props) => {
                             <b>Plot:</b> {info.Plot}
                         </div>
                         <PlayerContainer />
-                        <button>shopping card</button>
                     </div>
                 </div>
             </>

@@ -4,7 +4,8 @@ const initialState = {
     films: [],
     current: 1,
     filmInfo: [],
-    YouTubeIds: ids
+    YouTubeIds: ids,
+    cardShop: [],
 };
 
 const FilmsReducer = (state = initialState, actions) => {
@@ -27,6 +28,11 @@ const FilmsReducer = (state = initialState, actions) => {
                 filmInfo: state.films.filter(
                     (item) => item.imdbID === actions.filmId
                 ),
+            };
+        case "SET-CARD-SHOP":
+            return {
+                ...state,
+                cardShop: [...state.cardShop, actions.id],
             };
 
         default:
@@ -52,6 +58,13 @@ export const setFilmInfo = (id) => {
     return {
         type: "SET-FILM-INFO",
         filmId: id,
+    };
+};
+
+export const setCardShop = (id) => {
+    return {
+        type: "SET-CARD-SHOP",
+        id: id,
     };
 };
 

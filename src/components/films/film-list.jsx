@@ -62,7 +62,7 @@ class FilmList extends React.Component {
 
     render() {
         const { films } = this.props;
-        console.log(films);
+        
         const elements = films.map((film) => {
             return (
                 <div>

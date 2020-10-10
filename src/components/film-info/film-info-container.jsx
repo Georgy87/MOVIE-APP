@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
-import { setFilmInfo } from "../../redux/films-reducer";
-import instance from "../api/api";
+import { setFilmInfo , setCardShop} from "../../redux/films-reducer";
 import FilmInfo from "../film-info/film-info";
 
 class FilmInfoContainer extends Component {
@@ -13,12 +12,12 @@ class FilmInfoContainer extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.filmId;
-        // instance.get(`?i=${id}`).then(res => this.props.setFilmInfo(res));
         this.props.setFilmInfo(id);
     }
 
     render() {
-        return <FilmInfo filmInfo={this.props.filmInfo}/> ;
+
+        return <FilmInfo filmInfo={this.props.filmInfo} setCardShop={this.props.setCardShop}/> ;
     }
 }
 
@@ -30,7 +29,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setFilmInfo: (film) => dispatch(setFilmInfo(film))
+        setFilmInfo: (film) => dispatch(setFilmInfo(film)),
+        setCardShop: (id) => dispatch(setCardShop(id))
     };
 };
 
