@@ -1,6 +1,6 @@
 import React from "react";
 import "./film-list.css";
-import { filmIds } from "../film-Ids/film-ids";
+import { filmIds } from "../../assets/film-Ids/film-ids";
 import instance from "../api/api";
 import FilmListItem from "./film-list-item/film-list-item";
 
@@ -17,56 +17,53 @@ class FilmList extends React.Component {
     componentDidMount() {
 
         const { current } = this.state;
+        const { YouTubeIds } = this.props;
 
-        const pageItems = 3;
+        const pageItems = 2;
 
         const from = current * pageItems - pageItems;
         const to = current * pageItems;
 
         const movies = filmIds.slice(from, to);
 
-        const request = movies.map((id) => instance.get(`?i=${id}`));
+        const request = movies.map( (id) => instance.get(`?i=${id}`));
         const requestMovie = Promise.all(request).then((res) => {
             let result = res.map(function(e, i) {
-                // console.log(i+3);
-                let ageArr = [{name: "gosha"}, {name: "ivan"}, {name: "nicolai"}]
-                return Object.assign({}, e, ageArr[i]);
+
+                return Object.assign({}, e, YouTubeIds[i]);
             });
             return this.props.setFilms(result);
         });
-        console.log(this.props)
-
     }
 
     onChangeShowFilm = () => {
-        let val = this.state.currentNextPage++;
+        let count = this.state.currentNextPage++;
 
-        const pageItems = 3;
+        const { YouTubeIds } = this.props;
 
-        const from = val * pageItems - pageItems;
-        const to = val * pageItems;
+        const pageItems = 2;
+
+        const from = count * pageItems - pageItems;
+        const to = count * pageItems;
 
         const movies = filmIds.slice(from, to);
 
         const request = movies.map((id) => instance.get(`?i=${id}`));
         const requestMovie = Promise.all(request).then((res) => {
-
-            return this.props.nextShowFilm(res);
+            // console.log(res);
+            let result = res.map(function(e, i) {
+                i = i + from;
+                console.log(i);
+                console.log(YouTubeIds[i])
+                return Object.assign({}, e, YouTubeIds[i]);
+            });
+            return this.props.nextShowFilm(result);
         });
     };
 
     render() {
         const { films } = this.props;
-
-        // var ageArr = [{ age: "22" }, { age: "21" }, { age: "32" }];
-
-        // var result = films.map(function(e, i) {
-        //     // console.log(i+3);
-        //     return Object.assign({}, e, ageArr[i]);
-        // });
-
-        // this.props.setFilms(result);
-
+        console.log(films);
         const elements = films.map((film) => {
             return (
                 <div>

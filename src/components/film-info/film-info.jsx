@@ -3,9 +3,8 @@ import "./film-info.css";
 
 import PlayerContainer from "../pleayer/player-container";
 const FilmInfo = (props) => {
-    console.log(props)
+
     const [ info ] = props.filmInfo;
-    console.log(info);
 
     let poster = null;
     let title = null;
@@ -20,7 +19,7 @@ const FilmInfo = (props) => {
     let year = null;
     let plot = null;
 
-    if (info  === undefined) {
+    if (info === undefined) {
         console.log("no");
     } else {
         poster = info.Poster;

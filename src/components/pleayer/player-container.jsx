@@ -3,16 +3,15 @@ import { connect } from "react-redux";
 import Example from "../pleayer/player";
 
 const mapStateToProps = (state) => {
-    console.log(state);
+    const [info] = state.filmPage.filmInfo;
+
     return {
-        
-    }
-}
+        id: info,
+    };
+};
 
 const mapDispatchToProps = () => {
-    return {
+    return {};
+};
 
-    }
-}
-console.log('hello')
 export default connect(mapStateToProps, mapDispatchToProps)(Example);

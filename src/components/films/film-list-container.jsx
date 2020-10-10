@@ -4,9 +4,12 @@ import FilmList from "./film-list";
 import { setFilms,  nextShowFilm } from "../../redux/films-reducer";
 
 const mapStateToProps = (state) => {
+    const { filmPage } = state;
+    console.log(filmPage)
     return {
-        films: state.filmPage.films,
-        current: state.filmPage.current
+        films: filmPage.films,
+        current: filmPage.current,
+        YouTubeIds: filmPage.YouTubeIds,
     };
 };
 
