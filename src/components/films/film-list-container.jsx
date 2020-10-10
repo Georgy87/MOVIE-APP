@@ -5,7 +5,6 @@ import { setFilms,  nextShowFilm } from "../../redux/films-reducer";
 
 const mapStateToProps = (state) => {
     const { filmPage } = state;
-   console.log(filmPage);
     // if (filmPage.cardShop[0] != undefined) {
     //     const element = filmPage.cardShop.map(el => {
     //         let serialObj = JSON.stringify(el);

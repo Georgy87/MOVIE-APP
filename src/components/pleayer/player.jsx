@@ -7,7 +7,6 @@ class Example extends React.Component {
         this.props = props;
     }
     render() {
-		console.log(this.props.id);
 		let id = null;
 		if (this.props.id === undefined) {
 			console.log('');

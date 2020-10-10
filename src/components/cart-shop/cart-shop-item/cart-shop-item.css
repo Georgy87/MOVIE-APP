@@ -1,0 +1,41 @@
+/* .film-list-item {
+    padding: 40px;
+}
+
+.film-list-item-hr {
+    border: none;
+    height: 3px;
+    background-image: linear-gradient(to bottom, rgb(16, 44, 30) 8%, rgba(0, 0, 0, 0) 92%);
+}
+
+.film-list-item img {
+    border-radius: 5px;
+    box-shadow: 0px 5px 30px 7px rgba(121, 120, 120, 0.9);
+    transition: all 0.3s ease;
+}
+
+.film-list-item img:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+} */
+
+.cart-info-wrapper img {
+    height: 250px;
+    width: 200px;
+    margin-top: 80px;
+    margin-left: 30px;
+    border-radius: 5px;
+    /* box-shadow: 0px 5px 30px 7px rgba(243, 239, 239, 0.9); */
+    transition: all 0.3s ease;
+}
+
+.descr-wrapper {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.descr-title {
+    color: rgb(202, 137, 39);
+    font-size: 30px;
+}
+

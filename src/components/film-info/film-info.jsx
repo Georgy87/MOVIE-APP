@@ -5,7 +5,7 @@ import PlayerContainer from "../pleayer/player-container";
 const FilmInfo = (props) => {
 
     const [info] = props.filmInfo;
-
+    console.log(info);
     const getShoppingСart = () => {
         props.setCardShop(info.imdbID)
     }

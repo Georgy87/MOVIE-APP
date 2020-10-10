@@ -29,6 +29,7 @@ const FilmsReducer = (state = initialState, actions) => {
                     (item) => item.imdbID === actions.filmId
                 ),
             };
+            
         case "SET-CARD-SHOP":
             return {
                 ...state,
