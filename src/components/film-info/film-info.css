@@ -7,14 +7,49 @@
     width: 1300px;
     margin-top: 100px;
 }
-.film-info-wrapper img {
+.info-poster-added {
+    margin-left: 35px;
+}
+.img-poster {
+    display: flex;
+    flex-direction: column;
     height: 400px;
     width: 310px;
     margin-top: 80px;
-    margin-left: 30px;
     border-radius: 5px;
     box-shadow: 0px 5px 30px 7px rgba(243, 239, 239, 0.9);
     transition: all 0.3s ease;
+}
+.btns-added {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.shop-card-img {
+    height: 40px;
+    width: 40px;
+    padding-top: 30px;
+    cursor: pointer;
+}
+
+.info-poster-added button {
+    margin-top: 40px;
+    width: 100px;
+    min-height: 35px;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 3px;
+    text-align: center;
+    padding: 5px;
+    font-size: 13px;
+    padding-bottom: 5px;
+}
+.info-poster-added {
+    display: flex;
+    flex-direction: column;
 }
 .film-info-wrapper img:hover {
     -webkit-transform: scale(1.05);
@@ -37,8 +72,7 @@
 .descr-item-wrapper {
     margin-top: 20px;
 }
-.descr-item-wrapper :last-child{
+.descr-item-wrapper :last-child {
     margin-top: 20px;
     font-size: 20px;
 }
-

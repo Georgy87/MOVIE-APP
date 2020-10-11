@@ -15,6 +15,12 @@ class FilmList extends React.Component {
     }
 
     componentDidMount() {
+        async function searchMovies() {
+            const request = await instance.get(`?s=black mirror`);
+            console.log(request);
+        }
+
+        searchMovies();
 
         const { current } = this.state;
         const { YouTubeIds } = this.props;
@@ -26,7 +32,7 @@ class FilmList extends React.Component {
 
         const movies = filmIds.slice(from, to);
 
-        const request = movies.map( (id) => instance.get(`?i=${id}`));
+        const request = movies.map((id) => instance.get(`?i=${id}`));
         const requestMovie = Promise.all(request).then((res) => {
             let result = res.map(function(e, i) {
                 return Object.assign({}, e, YouTubeIds[i]);
@@ -62,7 +68,7 @@ class FilmList extends React.Component {
 
     render() {
         const { films } = this.props;
-        
+
         const elements = films.map((film) => {
             return (
                 <div>
@@ -109,10 +115,3 @@ export default FilmList;
 // const newArray = [...before, ...after];
 
 // searchMovies
-
-// async function searchMovies() {
-//     const request = await instance.get(`?s=black mirror`);
-//     console.log(request);
-// }
-
-// searchMovies('batman');

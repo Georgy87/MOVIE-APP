@@ -1,6 +1,7 @@
 import React from "react";
 import "./film-info.css";
 import PlayerContainer from "../pleayer/player-container";
+import ShopCard from "../../assets/image/324-3241091_e-commerce-icon-png-free-clipart.png"
 
 const FilmInfo = (props) => {
 
@@ -14,8 +15,17 @@ const FilmInfo = (props) => {
             console.log("no")
         : (
             <>
-                <button onClick={getShoppingСart}>shopping card</button>
-                <img src={info.Poster} alt="poster" />
+                <div className="info-poster-added">
+
+                    <img className="img-poster" src={info.Poster} alt="poster" />
+
+                    <div className="btns-added">
+
+                        <button >Shopping Card</button>
+                        <img className="shop-card-img" onClick={getShoppingСart} src={ShopCard} alt=""/>
+                    </div>
+                </div>
+
                 <div className="descr-wrapper">
                     <div className="descr-title">Title: {info.Title}</div>
                     <div className="descr-item-wrapper">
@@ -47,6 +57,7 @@ const FilmInfo = (props) => {
                             <b>Plot:</b> {info.Plot}
                         </div>
                         <PlayerContainer />
+
                     </div>
                 </div>
             </>
