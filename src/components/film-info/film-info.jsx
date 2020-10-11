@@ -6,7 +6,7 @@ import ShopCard from "../../assets/image/324-3241091_e-commerce-icon-png-free-cl
 const FilmInfo = (props) => {
 
     const [info] = props.filmInfo;
-    console.log(info);
+   
     const getShoppingСart = () => {
         props.setCardShop(info.imdbID)
     }

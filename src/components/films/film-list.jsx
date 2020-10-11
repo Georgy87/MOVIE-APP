@@ -15,17 +15,17 @@ class FilmList extends React.Component {
     }
 
     componentDidMount() {
-        async function searchMovies() {
-            const request = await instance.get(`?s=black mirror`);
-            console.log(request);
-        }
+        // async function searchMovies() {
+        //     const request = await instance.get(`?s=black mirror`);
+        //     console.log(request);
+        // }
 
-        searchMovies();
+        // searchMovies();
 
         const { current } = this.state;
         const { YouTubeIds } = this.props;
 
-        const pageItems = 2;
+        const pageItems = 3;
 
         const from = current * pageItems - pageItems;
         const to = current * pageItems;
@@ -46,7 +46,7 @@ class FilmList extends React.Component {
 
         const { YouTubeIds } = this.props;
 
-        const pageItems = 2;
+        const pageItems = 3;
 
         const from = count * pageItems - pageItems;
         const to = count * pageItems;
@@ -68,7 +68,6 @@ class FilmList extends React.Component {
 
     render() {
         const { films } = this.props;
-
         const elements = films.map((film) => {
             return (
                 <div>
@@ -88,7 +87,10 @@ class FilmList extends React.Component {
                     <div className="next-show" onClick={this.onChangeShowFilm}>
                         NEXT SHOW
                     </div>
-                    <div className="film-list-item-wrapper">{elements}</div>
+
+                    <div className="film-list-item-wrapper">
+                        {elements}
+                    </div>
                 </div>
             </div>
         );

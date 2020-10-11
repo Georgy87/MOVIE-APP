@@ -29,11 +29,28 @@ const FilmsReducer = (state = initialState, actions) => {
                     (item) => item.imdbID === actions.filmId
                 ),
             };
-            
+
         case "SET-CARD-SHOP":
             return {
                 ...state,
                 cardShop: [...state.cardShop, actions.id],
+            };
+
+        case "FILTER-FILMS":
+            // console.log(actions.text.length);
+
+            // let element = state.films.length > 0 ?
+            // state.films.filter(item => {
+            //     return item.Title.indexOf(actions.text) > -1
+            // }) : state.films;
+            // console.log(state.films.length);
+            return {
+                ...state,
+                films: [
+                    ...state.films.filter((item) => {
+                        return item.Title.indexOf(actions.text) > -1;
+                    }),
+                ],
             };
 
         default:
@@ -66,6 +83,14 @@ export const setCardShop = (id) => {
     return {
         type: "SET-CARD-SHOP",
         id: id,
+    };
+};
+
+export const filterFilms = (text) => {
+    
+    return {
+        type: "FILTER-FILMS",
+        text: text.message,
     };
 };
 

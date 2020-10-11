@@ -21,10 +21,29 @@
     height: 3px;
     background-image: linear-gradient(to bottom, rgb(40, 27, 70) 8%, rgba(0, 0, 0, 0) 92%);
 }
-
 .card-shop {
     font-size: 20px;
     cursor: pointer;
     margin-top: 10px;
+}
+.header-search {
+    position: absolute;
+    left: 200px;
+    bottom: 22px;
+    background-color: transparent;
+}
+.header-search-input{
+    background-color: rgb(100, 97, 97, 0.5);
+    border: none;
+    border-radius: 2px;
+    width: 200px;
+    color: rgb(110, 110, 109);
+    padding: 5px;
+}
+.header-search-input:hover {
+    outline: none;
+}
+.header-search-input:focus {
+    outline: none;
 }
 
