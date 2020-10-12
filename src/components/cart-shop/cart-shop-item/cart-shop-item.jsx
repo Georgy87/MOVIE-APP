@@ -2,7 +2,9 @@ import React from "react";
 import "./cart-shop-item.css";
 
 const CartShopItem = (props) => {
+    console.log(props)
     const elements = props.cartShop.map(el => {
+
         return (
             <div>
                 <div className="cart-info-item">

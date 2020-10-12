@@ -12,7 +12,7 @@ const reducers = combineReducers({
 
 
 const saveState = (state) => {
-    console.log(state);
+
     try {
         // Convert the state to a JSON string
         const serialisedState = JSON.stringify(state);
@@ -46,11 +46,11 @@ const loadState = () => {
 /**
  * This is where you create the app store
  */
-const oldState = loadState();
-const store = createStore(reducers, oldState);
-store.subscribe(() => {
-    saveState(store.getState());
-});
+// const oldState = loadState();
+const store = createStore(reducers);
+// store.subscribe(() => {
+//     saveState(store.getState());
+// });
 
 window.store = store;
 export default store;

@@ -1,13 +1,21 @@
 const initialState = {
     cartShop: [],
+    cartShopFilms: null,
 };
 
 const cartShopReducer = (state = initialState, actions) => {
     switch (actions.type) {
-        case "SET-CART-SHOP":
+        case "SET-CART-SHOP-IDS":
+            // const newArray = Array.from(new Set(actions.id));
+
             return {
                 ...state,
                 cartShop: [...state.cartShop, actions.id],
+            };
+        case "SET-CART-SHOP-FILMS":
+            return {
+                ...state,
+                cartShopFilms: actions.films,
             };
         default:
             return state;
@@ -16,8 +24,15 @@ const cartShopReducer = (state = initialState, actions) => {
 
 export const setCartShop = (id) => {
     return {
-        type: "SET-CART-SHOP",
+        type: "SET-CART-SHOP-IDS",
         id: id,
+    };
+};
+
+export const setCartShopFilms = (films) => {
+    return {
+        type: "SET-CART-SHOP-FILMS",
+        films: films,
     };
 };
 

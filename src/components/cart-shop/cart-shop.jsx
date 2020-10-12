@@ -7,25 +7,20 @@ class CartShop extends React.Component {
     constructor(props) {
         super(props);
         this.props = props;
-        this.state = {
-            cartShop: null,
-        };
     }
     componentDidMount() {
         const newArray = Array.from(new Set(this.props.cartShop));
         const request = newArray.map((id) => {
             return instance.get(`?i=${id}`);
         });
-
         Promise.all(request).then((res) => {
-            this.setState({ cartShop: res });
+            this.props.setCartShopFilms(res)
         });
     }
 
     render() {
-
-        const element = this.state.cartShop === null ? console.log('null') :
-        <CartShopItem cartShop={this.state.cartShop} />
+        const element = this.props.cartShopFilms === null ? console.log('null') :
+        <CartShopItem cartShop={this.props.cartShopFilms} />
 
         return (
             <div>
