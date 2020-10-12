@@ -72,14 +72,6 @@ export const setFilmInfo = (id) => {
     };
 };
 
-// export const setCardShop = (id) => {
-
-//     return {
-//         type: "SET-CARD-SHOP",
-//         id: id,
-//     };
-// };
-
 export const filterFilms = (text) => {
 
     return {
