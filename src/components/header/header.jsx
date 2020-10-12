@@ -7,14 +7,12 @@ import { filmIds } from "../../assets/film-Ids/film-ids";
 
 const Header = (props) => {
     const searchFilm = (value) => {
-        console.log(props.films.length);
-        console.log(value.message);
-        if (value.message != undefined) {
+        if (value.message !== undefined) {
             props.filterFilms(value);
         } else {
             const movies = filmIds.slice(0, 3);
             const request = movies.map((id) => instance.get(`?i=${id}`));
-            const requestMovie = Promise.all(request).then((res) => {
+            Promise.all(request).then((res) => {
                 return props.setFilms(res);
             });
         }

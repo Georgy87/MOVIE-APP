@@ -6,9 +6,10 @@ import ShopCard from "../../assets/image/324-3241091_e-commerce-icon-png-free-cl
 const FilmInfo = (props) => {
 
     const [info] = props.filmInfo;
-   
+
     const getShoppingСart = () => {
-        props.setCardShop(info.imdbID)
+        props.setCartShop(info.imdbID);
+        props.setLikeBox(props.filmInfo);
     }
 
     const element = info === undefined ?
@@ -57,7 +58,6 @@ const FilmInfo = (props) => {
                             <b>Plot:</b> {info.Plot}
                         </div>
                         <PlayerContainer />
-
                     </div>
                 </div>
             </>

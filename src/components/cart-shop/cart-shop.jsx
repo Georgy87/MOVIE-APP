@@ -17,7 +17,7 @@ class CartShop extends React.Component {
             return instance.get(`?i=${id}`);
         });
 
-        const requestMovie = Promise.all(request).then((res) => {
+        Promise.all(request).then((res) => {
             this.setState({ cartShop: res });
         });
     }

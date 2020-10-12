@@ -15,17 +15,11 @@ class FilmList extends React.Component {
     }
 
     componentDidMount() {
-        // async function searchMovies() {
-        //     const request = await instance.get(`?s=black mirror`);
-        //     console.log(request);
-        // }
-
-        // searchMovies();
 
         const { current } = this.state;
         const { YouTubeIds } = this.props;
 
-        const pageItems = 3;
+        const pageItems = 2;
 
         const from = current * pageItems - pageItems;
         const to = current * pageItems;
@@ -33,7 +27,7 @@ class FilmList extends React.Component {
         const movies = filmIds.slice(from, to);
 
         const request = movies.map((id) => instance.get(`?i=${id}`));
-        const requestMovie = Promise.all(request).then((res) => {
+        Promise.all(request).then((res) => {
             let result = res.map(function(e, i) {
                 return Object.assign({}, e, YouTubeIds[i]);
             });
@@ -46,7 +40,7 @@ class FilmList extends React.Component {
 
         const { YouTubeIds } = this.props;
 
-        const pageItems = 3;
+        const pageItems = 2;
 
         const from = count * pageItems - pageItems;
         const to = count * pageItems;
@@ -58,8 +52,6 @@ class FilmList extends React.Component {
             // console.log(res);
             let result = res.map(function(e, i) {
                 i = i + from;
-                console.log(i);
-                console.log(YouTubeIds[i]);
                 return Object.assign({}, e, YouTubeIds[i]);
             });
             return this.props.nextShowFilm(result);
@@ -99,21 +91,3 @@ class FilmList extends React.Component {
 
 export default FilmList;
 
-// console.log(this.props);
-// this.props.setFilms(requestMovie);
-// dev added likes and important to movieArray
-
-// requestMovie.map(el => {
-//     el.liked = true;
-//     return el;
-// });
-// console.log(requestMovie);
-
-// delete IdsArray
-
-// const index = filmIds.findIndex(item => item === "tt0071562");
-// const before = filmIds.slice(0, index);
-// const after = filmIds.slice(index + 1);
-// const newArray = [...before, ...after];
-
-// searchMovies
