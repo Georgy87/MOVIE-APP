@@ -17,6 +17,11 @@ const cartShopReducer = (state = initialState, actions) => {
                 ...state,
                 cartShopFilms: actions.films,
             };
+        case "DELETE-CART-SHOP-FILM": {
+            return {
+                ...state
+            }
+        }
         default:
             return state;
     }
@@ -35,5 +40,12 @@ export const setCartShopFilms = (films) => {
         films: films,
     };
 };
+
+export const deleteCartShopFilm = (id) => {
+    console.log(id);
+    return {
+        type: "DELETE-CART-SHOP-FILM"
+    }
+}
 
 export default cartShopReducer;

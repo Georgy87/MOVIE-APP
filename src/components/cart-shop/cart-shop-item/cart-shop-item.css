@@ -1,20 +1,20 @@
+.cart-info-item-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+
+}
 .cart-info-wrapper img {
     height: 130px;
     width: 100px;
-    margin-top: 80px;
-    margin-left: 30px;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
 
-.descr-wrapper {
-    margin-left: 30px;
-    margin-top: 30px;
-}
-.descr-title {
+.cart-info-descr-title {
     color: rgb(202, 137, 39);
     font-size: 24px;
-    padding-bottom: 4px;
 }
 .cart-info-item img:hover {
     -webkit-transform: scale(1.05);
@@ -28,6 +28,14 @@
     width: 1300px;
     margin: 0 auto;
     background-image: linear-gradient(to bottom, rgb(16, 44, 30) 8%, rgba(0, 0, 0, 0) 92%);
+}
+.delete-cart {
+    color: white;
+    cursor: pointer;
+}
+
+.cart-info-item {
+    width: 1000px;
 }
 
 

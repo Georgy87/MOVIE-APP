@@ -48,9 +48,9 @@ const loadState = () => {
  */
 // const oldState = loadState();
 const store = createStore(reducers);
-// store.subscribe(() => {
-//     saveState(store.getState());
-// });
+store.subscribe(() => {
+    saveState(store.getState());
+});
 
 window.store = store;
 export default store;

@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import Header from "./header";
 import { filterFilms, setFilms } from "../../redux/films-reducer";
 
-
 const mapStateToProps = (state) => {
     return {
         films: state.filmPage.films

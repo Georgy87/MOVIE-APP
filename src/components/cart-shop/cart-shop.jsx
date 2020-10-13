@@ -14,19 +14,30 @@ class CartShop extends React.Component {
             return instance.get(`?i=${id}`);
         });
         Promise.all(request).then((res) => {
-            this.props.setCartShopFilms(res)
+            this.props.setCartShopFilms(res);
         });
     }
 
     render() {
-        const element = this.props.cartShopFilms === null ? console.log('null') :
-        <CartShopItem cartShop={this.props.cartShopFilms} />
-
+        const { deleteCartShopFilm } = this.props;
+        const element =
+            this.props.cartShopFilms === null
+                ? console.log("null")
+                : this.props.cartShopFilms.map((el) => {
+                      console.log(el);
+                      return (
+                          <CartShopItem
+                              cartShop={this.props.cartShopFilms}
+                              deleteCartShopFilm={deleteCartShopFilm}
+                              title={el.Title}
+                              poster={el.Poster}
+                              id={el.imdbID}
+                          />
+                      );
+                  });
         return (
             <div>
-                <div className="cart-info-wrapper">
-                    {element}
-                </div>
+                <div className="cart-info-wrapper">{element}</div>
             </div>
         );
     }
