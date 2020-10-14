@@ -9,13 +9,14 @@ class CartShop extends React.Component {
         this.props = props;
     }
     componentDidMount() {
-        const newArray = Array.from(new Set(this.props.cartShop));
-        const request = newArray.map((id) => {
-            return instance.get(`?i=${id}`);
-        });
-        Promise.all(request).then((res) => {
-            this.props.setCartShopFilms(res);
-        });
+
+
+        // const request = newArray.map((id) => {
+        //     return instance.get(`?i=${id}`);
+        // });
+        // Promise.all(request).then((res) => {
+        //     this.props.setCartShopFilms(res);
+        // });
     }
 
     render() {
@@ -24,9 +25,9 @@ class CartShop extends React.Component {
             this.props.cartShopFilms === null
                 ? console.log("null")
                 : this.props.cartShopFilms.map((el) => {
-                      console.log(el);
                       return (
                           <CartShopItem
+                              key={el.imdbID}
                               cartShop={this.props.cartShopFilms}
                               deleteCartShopFilm={deleteCartShopFilm}
                               title={el.Title}

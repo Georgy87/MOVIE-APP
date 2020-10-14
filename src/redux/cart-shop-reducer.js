@@ -1,25 +1,24 @@
 const initialState = {
-    cartShop: [],
-    cartShopFilms: null,
+    cartShopFilmsNew: []
 };
 
 const cartShopReducer = (state = initialState, actions) => {
     switch (actions.type) {
-        case "SET-CART-SHOP-IDS":
-            // const newArray = Array.from(new Set(actions.id));
+        case "SET-CART-SHOP-FILMS-NEW": {
+            return {
+                ...state,
+                cartShopFilmsNew: Array.from(new Set([...state.cartShopFilmsNew.concat(actions.films)]))
+            }
+        }
 
-            return {
-                ...state,
-                cartShop: [...state.cartShop, actions.id],
-            };
-        case "SET-CART-SHOP-FILMS":
-            return {
-                ...state,
-                cartShopFilms: actions.films,
-            };
         case "DELETE-CART-SHOP-FILM": {
+            const index = state.cartShopFilmsNew.findIndex(elem => elem.imdbID === actions.id)
+            const before = state.cartShopFilmsNew.slice(0, index);
+            const after = state.cartShopFilmsNew.slice(index + 1);
+            const newArray = [...after, ...before];
             return {
-                ...state
+                ...state,
+                cartShopFilmsNew: newArray
             }
         }
         default:
@@ -34,17 +33,17 @@ export const setCartShop = (id) => {
     };
 };
 
-export const setCartShopFilms = (films) => {
+export const setCartShopFilmsNew = (films) => {
     return {
-        type: "SET-CART-SHOP-FILMS",
+        type: "SET-CART-SHOP-FILMS-NEW",
         films: films,
     };
 };
 
 export const deleteCartShopFilm = (id) => {
-    console.log(id);
     return {
-        type: "DELETE-CART-SHOP-FILM"
+        type: "DELETE-CART-SHOP-FILM",
+        id: id
     }
 }
 

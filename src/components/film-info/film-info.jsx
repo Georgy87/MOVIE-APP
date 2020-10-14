@@ -8,7 +8,7 @@ const FilmInfo = (props) => {
     const [info] = props.filmInfo;
 
     const getShoppingСart = () => {
-        props.setCartShop(info.imdbID);
+        props.setCartShopFilmsNew(info);
         props.setLikeBox(props.filmInfo);
     }
 
@@ -17,16 +17,12 @@ const FilmInfo = (props) => {
         : (
             <>
                 <div className="info-poster-added">
-
                     <img className="img-poster" src={info.Poster} alt="poster" />
-
                     <div className="btns-added">
-
                         <button >Shopping Card</button>
                         <img className="shop-card-img" onClick={getShoppingСart} src={ShopCard} alt=""/>
                     </div>
                 </div>
-
                 <div className="descr-wrapper">
                     <div className="descr-title">Title: {info.Title}</div>
                     <div className="descr-item-wrapper">
