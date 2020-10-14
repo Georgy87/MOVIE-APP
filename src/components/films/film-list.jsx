@@ -3,6 +3,7 @@ import "./film-list.css";
 import { filmIds } from "../../assets/film-Ids/film-ids";
 import instance from "../api/api";
 import FilmListItem from "./film-list-item/film-list-item";
+import SliderContainer from "../slider/slider-container";
 
 class FilmList extends React.Component {
     constructor(props) {
@@ -15,11 +16,10 @@ class FilmList extends React.Component {
     }
 
     componentDidMount() {
-
         const { current } = this.state;
         const { YouTubeIds } = this.props;
 
-        const pageItems = 2;
+        const pageItems = 5;
 
         const from = current * pageItems - pageItems;
         const to = current * pageItems;
@@ -40,7 +40,7 @@ class FilmList extends React.Component {
 
         const { YouTubeIds } = this.props;
 
-        const pageItems = 2;
+        const pageItems = 5;
 
         const from = count * pageItems - pageItems;
         const to = count * pageItems;
@@ -79,10 +79,8 @@ class FilmList extends React.Component {
                     <div className="next-show" onClick={this.onChangeShowFilm}>
                         NEXT SHOW
                     </div>
-
-                    <div className="film-list-item-wrapper">
-                        {elements}
-                    </div>
+                    <SliderContainer />
+                    <div className="film-list-item-wrapper">{elements}</div>
                 </div>
             </div>
         );
@@ -90,4 +88,3 @@ class FilmList extends React.Component {
 }
 
 export default FilmList;
-

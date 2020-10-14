@@ -10,6 +10,7 @@ const App = () => {
     return (
         <div className="app">
                 <HeaderContainer />
+                
             <div className="app-wrapper">
                 <Route path="/cartshop" render={() => <CartShopContainer />} />
                 <Route path="/d" render={() => <FilmListContainer />} />

@@ -3,7 +3,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-
 }
 .cart-info-wrapper img {
     height: 130px;
@@ -11,7 +10,6 @@
     border-radius: 5px;
     transition: all 0.3s ease;
 }
-
 .cart-info-descr-title {
     color: rgb(202, 137, 39);
     font-size: 24px;
@@ -33,7 +31,6 @@
     color: white;
     cursor: pointer;
 }
-
 .cart-info-item {
     width: 1000px;
 }

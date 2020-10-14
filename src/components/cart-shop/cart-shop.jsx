@@ -8,16 +8,6 @@ class CartShop extends React.Component {
         super(props);
         this.props = props;
     }
-    componentDidMount() {
-
-
-        // const request = newArray.map((id) => {
-        //     return instance.get(`?i=${id}`);
-        // });
-        // Promise.all(request).then((res) => {
-        //     this.props.setCartShopFilms(res);
-        // });
-    }
 
     render() {
         const { deleteCartShopFilm } = this.props;

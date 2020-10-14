@@ -6,8 +6,6 @@ import { setFilms,  nextShowFilm } from "../../redux/films-reducer";
 const mapStateToProps = (state) => {
     const { filmPage } = state;
    
-
-
     return {
         films: filmPage.films,
         current: filmPage.current,
