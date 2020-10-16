@@ -1,65 +1,54 @@
 import React from "react";
 import "./film-list.css";
-import { filmIds } from "../../assets/film-Ids/film-ids";
-import instance from "../api/api";
 import FilmListItem from "./film-list-item/film-list-item";
 import SliderContainer from "../slider/slider-container";
 
 class FilmList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            films: null,
-            current: 1,
-            currentNextPage: 2,
-        };
+        this.props = props;
     }
 
-    componentDidMount() {
-        const { current } = this.state;
-        const { YouTubeIds } = this.props;
+    // componentDidMount() {
+    //     const { YouTubeIds, pageItems, current } = this.props.state;
 
-        const pageItems = 5;
+    //     const from = current * pageItems - pageItems;
+    //     const to = current * pageItems;
+    //     const movies = filmIds.slice(from, to);
 
-        const from = current * pageItems - pageItems;
-        const to = current * pageItems;
+    //     const request = movies.map((id) => instance.get(`?i=${id}`));
+    //     Promise.all(request).then((res) => {
+    //         let result = res.map(function(e, i) {
+    //             return Object.assign({}, e, YouTubeIds[i]);
+    //         });
+    //         return this.props.state.setFilms(result);
+    //     });
+    // }
 
-        const movies = filmIds.slice(from, to);
+    // onChangeShowFilm = () => {
+    //     let { YouTubeIds, pageItems, current } = this.props.state;
+    //     let count = current++;
 
-        const request = movies.map((id) => instance.get(`?i=${id}`));
-        Promise.all(request).then((res) => {
-            let result = res.map(function(e, i) {
-                return Object.assign({}, e, YouTubeIds[i]);
-            });
-            return this.props.setFilms(result);
-        });
-    }
+    //     const from = count * pageItems - pageItems;
+    //     const to = count * pageItems;
 
-    onChangeShowFilm = () => {
-        let count = this.state.currentNextPage++;
+    //     const movies = filmIds.slice(from, to);
 
-        const { YouTubeIds } = this.props;
-
-        const pageItems = 5;
-
-        const from = count * pageItems - pageItems;
-        const to = count * pageItems;
-
-        const movies = filmIds.slice(from, to);
-
-        const request = movies.map((id) => instance.get(`?i=${id}`));
-        const requestMovie = Promise.all(request).then((res) => {
-            // console.log(res);
-            let result = res.map(function(e, i) {
-                i = i + from;
-                return Object.assign({}, e, YouTubeIds[i]);
-            });
-            return this.props.nextShowFilm(result);
-        });
-    };
+    //     const request = movies.map((id) => instance.get(`?i=${id}`));
+    //     const requestMovie = Promise.all(request).then((res) => {
+    //         // console.log(res);
+    //         let result = res.map(function(e, i) {
+    //             i = i + from;
+    //             return Object.assign({}, e, YouTubeIds[i]);
+    //         });
+    //         return this.props.nextShowFilm(result);
+    //     });
+    // };
 
     render() {
-        const { films } = this.props;
+        console.log(this.props);
+        const { films } = this.props.state;
+
         const elements = films.map((film) => {
             return (
                 <div>
@@ -76,7 +65,7 @@ class FilmList extends React.Component {
         return (
             <div>
                 <div className="film-list-wrapper">
-                    <div className="next-show" onClick={this.onChangeShowFilm}>
+                    <div className="next-show" onClick={this.props.onChangeShowFilm}>
                         NEXT SHOW
                     </div>
                     <SliderContainer />

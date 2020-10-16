@@ -1,11 +1,13 @@
 import { ids } from "../assets/you-tube-ids/you-tube-ids";
 
+
 const initialState = {
     films: [],
     current: 1,
     filmInfo: [],
     YouTubeIds: ids,
-    likeBox: []
+    likeBox: [],
+    pageItems: 5
 };
 
 const FilmsReducer = (state = initialState, actions) => {
@@ -86,5 +88,11 @@ export const setLikeBox = (film) => {
         film: film,
     };
 };
+
+export const setFilmThunkCreator = () => {
+    return () => {
+
+    }
+}
 
 export default FilmsReducer;

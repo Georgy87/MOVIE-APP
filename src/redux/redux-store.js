@@ -1,6 +1,7 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware  } from "redux";
 import FilmsReducer from "./films-reducer";
 import cartShopReducer from "./cart-shop-reducer";
+import ReduxThunk from "redux-thunk";
 
 import { reducer as formReducer } from 'redux-form';
 
@@ -14,10 +15,7 @@ const reducers = combineReducers({
 const saveState = (state) => {
 
     try {
-        // Convert the state to a JSON string
         const serialisedState = JSON.stringify(state);
-
-        // Save the serialised state to localStorage against the key 'app_state'
         window.localStorage.setItem('app_state', serialisedState);
     } catch (err) {
         // Log errors here, or ignore
@@ -47,7 +45,7 @@ const loadState = () => {
  * This is where you create the app store
  */
 // const oldState = loadState();
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(ReduxThunk));
 store.subscribe(() => {
     saveState(store.getState());
 });

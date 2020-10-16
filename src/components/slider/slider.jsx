@@ -15,7 +15,7 @@ export default class SimpleSlider extends Component {
             infinite: true,
             speed: 500,
             slidesToShow: 4,
-            slidesToScroll: 1,
+            slidesToScroll: 2,
             pauseOnFocus: true,
 
             // variableWidth: true
@@ -29,7 +29,7 @@ export default class SimpleSlider extends Component {
                             width: "150px",
                             margin: "0 auto",
 							borderRadius: "5px",
-							boxShadow: "0px 12px 23px"
+							boxShadow: "0px 10px 20px"
                         }}
                         src={el.Poster}
                         alt=""
