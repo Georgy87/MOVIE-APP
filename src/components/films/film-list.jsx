@@ -9,46 +9,8 @@ class FilmList extends React.Component {
         this.props = props;
     }
 
-    // componentDidMount() {
-    //     const { YouTubeIds, pageItems, current } = this.props.state;
-
-    //     const from = current * pageItems - pageItems;
-    //     const to = current * pageItems;
-    //     const movies = filmIds.slice(from, to);
-
-    //     const request = movies.map((id) => instance.get(`?i=${id}`));
-    //     Promise.all(request).then((res) => {
-    //         let result = res.map(function(e, i) {
-    //             return Object.assign({}, e, YouTubeIds[i]);
-    //         });
-    //         return this.props.state.setFilms(result);
-    //     });
-    // }
-
-    // onChangeShowFilm = () => {
-    //     let { YouTubeIds, pageItems, current } = this.props.state;
-    //     let count = current++;
-
-    //     const from = count * pageItems - pageItems;
-    //     const to = count * pageItems;
-
-    //     const movies = filmIds.slice(from, to);
-
-    //     const request = movies.map((id) => instance.get(`?i=${id}`));
-    //     const requestMovie = Promise.all(request).then((res) => {
-    //         // console.log(res);
-    //         let result = res.map(function(e, i) {
-    //             i = i + from;
-    //             return Object.assign({}, e, YouTubeIds[i]);
-    //         });
-    //         return this.props.nextShowFilm(result);
-    //     });
-    // };
-
     render() {
-        console.log(this.props);
         const { films } = this.props.state;
-
         const elements = films.map((film) => {
             return (
                 <div>

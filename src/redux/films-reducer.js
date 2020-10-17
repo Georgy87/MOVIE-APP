@@ -1,5 +1,6 @@
 import { ids } from "../assets/you-tube-ids/you-tube-ids";
-
+import { filmIds } from "../assets/film-Ids/film-ids";
+import instance from "../components/api/api";
 
 const initialState = {
     films: [],
@@ -7,7 +8,7 @@ const initialState = {
     filmInfo: [],
     YouTubeIds: ids,
     likeBox: [],
-    pageItems: 5
+    pageItems: 5,
 };
 
 const FilmsReducer = (state = initialState, actions) => {
@@ -75,7 +76,6 @@ export const setFilmInfo = (id) => {
 };
 
 export const filterFilms = (text) => {
-
     return {
         type: "FILTER-FILMS",
         text: text.message,
@@ -89,9 +89,17 @@ export const setLikeBox = (film) => {
     };
 };
 
-export const setFilmThunkCreator = () => {
-    return () => {
-
+export const setFilmThunkCreator = (movies, YouTubeIds) => {
+    // console.log(YouTubeIds);
+    return (dispatch) => {
+        const request = movies.map((id) => instance.get(`?i=${id}`));
+        Promise.all(request).then((res) => {
+            let result = res.map(function(e, i) {
+                return Object.assign({}, e, YouTubeIds[i]);
+            });
+            dispatch(setFilms(result));
+            // return this.props.setFilms(result);
+        });
     }
 }
 
