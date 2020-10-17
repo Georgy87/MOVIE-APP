@@ -33,6 +33,14 @@ const FilmsReducer = (state = initialState, actions) => {
                 ),
             };
 
+        case "CHANGE-CURRENT":
+            let count = actions.current++;
+            console.log(state.current++);
+            return {
+                ...state,
+                current: state.current++
+            };
+
         case "SET-LIKE-BOX":
             return {
                 ...state,
@@ -68,6 +76,13 @@ export const nextShowFilm = (count) => {
     };
 };
 
+export const changeCurrent = (current) => {
+    return {
+        type: "CHANGE-CURRENT",
+        current: current
+    }
+}
+
 export const setFilmInfo = (id) => {
     return {
         type: "SET-FILM-INFO",
@@ -90,16 +105,37 @@ export const setLikeBox = (film) => {
 };
 
 export const setFilmThunkCreator = (movies, YouTubeIds) => {
-    // console.log(YouTubeIds);
     return (dispatch) => {
         const request = movies.map((id) => instance.get(`?i=${id}`));
-        Promise.all(request).then((res) => {
-            let result = res.map(function(e, i) {
-                return Object.assign({}, e, YouTubeIds[i]);
+
+        const getFilms = async () => {
+            await Promise.all(request).then((res) => {
+                let result = res.map(function(e, i) {
+                    return Object.assign({}, e, YouTubeIds[i]);
+                });
+                dispatch(setFilms(result));
             });
-            dispatch(setFilms(result));
-            // return this.props.setFilms(result);
-        });
+        }
+        getFilms();
+    }
+}
+
+    export const showNextFilmThunkCreator = (movies, YouTubeIds, from, current) => {
+
+        return (dispatch) => {
+            dispatch(changeCurrent(current));
+            console.log(movies)
+            const request = movies.map((id) => instance.get(`?i=${id}`));
+            const getFilms = async () => {
+                await Promise.all(request).then((res) => {
+                    let result = res.map(function(e, i) {
+                        i = i + from;
+                        return Object.assign({}, e, YouTubeIds[i]);
+                    });
+                    dispatch(nextShowFilm(result));
+                });
+        }
+        getFilms();
     }
 }
 
